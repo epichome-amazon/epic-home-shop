@@ -301,6 +301,20 @@ var PRODUCTS=[
 {cat:'Luxury Bath & Body',name:'The Bathologist Sleep Fizzy Lavender and Fresh Mint Bath Soak 32oz',brand:'The Bathologist',size:'32 oz approx 5 baths',price:'$22-28',url:'https://amzn.to/3P3YFL5'},
 {cat:'Luxury Bath & Body',name:'Newmiuz Creamy Collagen Milk and Honey Bath Bombs 12-Pack',brand:'Newmiuz',size:'12-pack',price:'$18-24',url:'https://amzn.to/4sWSNBi'},
 {cat:'Luxury Bath & Body',name:'Newmiuz Sleep Well Melatonin Bath Bombs 12-Pack',brand:'Newmiuz',size:'12-pack',price:'$18-24',url:'https://amzn.to/3Qt7EpH'},
+
+{cat:'Luxury Bath & Body',name:'Pureology Hydrate Shampoo',brand:'Pureology',size:'Various',price:'$28-38',url:'https://amzn.to/4t3CeUn'},
+{cat:'Luxury Bath & Body',name:'Pureology Hydrate Conditioner',brand:'Pureology',size:'Various',price:'$28-38',url:'https://amzn.to/4vY6hiM'},
+{cat:'Cleaning Supplies',name:'Scotch-Brite Non-Scratch Scrub Sponges 6-Pack',brand:'Scotch-Brite',size:'6-pack',price:'$7-10',url:'https://amzn.to/42B6sTM'},
+{cat:'Cleaning Supplies',name:'OXO Soap Dispensing Dish Scrub Brush',brand:'OXO',size:'Single with refillable handle',price:'$12-16',url:'https://amzn.to/3Qybq12'},
+{cat:'Cleaning Supplies',name:'Mrs Meyers Hand Soap Refill Lemon Verbena 33 fl oz',brand:'Mrs Meyers',size:'33 fl oz',price:'$8-12',url:'https://amzn.to/4tFwKjV'},
+{cat:'Cleaning Supplies',name:'Smart Sheep Dryer Balls 6-Pack XL',brand:'Smart Sheep',size:'6-pack XL',price:'$18-24',url:'https://amzn.to/4tO9fVJ'},
+{cat:'Cleaning Supplies',name:'OXO Good Grips Toilet Brush and Canister Set',brand:'OXO',size:'With canister',price:'$22-28',url:'https://amzn.to/4mSV5jq'},
+{cat:'Cleaning Supplies',name:'Brita Large Water Filter Pitcher 10 Cup',brand:'Brita',size:'10 cup capacity',price:'$32-40',url:'https://amzn.to/4d7oxyV'},
+{cat:'Cleaning Supplies',name:'Swiffer Dusters Heavy Duty Starter Kit',brand:'Swiffer',size:'Starter kit',price:'$12-16',url:'https://amzn.to/3Owaw4B'},
+{cat:'Paper Goods',name:'Dixie Large Paper Plates 10 inch 86ct',brand:'Dixie',size:'86-count',price:'$14-18',url:'https://amzn.to/4mRIw7W'},
+
+{cat:'Cleaning Supplies',name:'Glad ForceFlex Tall Kitchen Trash Bags',brand:'Glad',size:'Various',price:'$12-18',url:'https://amzn.to/3OIIkeN'},
+{cat:'Home Essentials',name:'Paper Towel Holder',brand:'Various',size:'Countertop',price:'$18-28',url:'https://amzn.to/4mXXcmd'},
 ];
 function buildNav(){var n=document.getElementById('cat-nav');n.innerHTML='';var a=document.createElement('div');a.className='cat-pill active';a.textContent='All';a.onclick=function(){filterCat('all',a);};n.appendChild(a);CAT_ORDER.forEach(function(c){var p=document.createElement('div');p.className='cat-pill';p.textContent=c;p.onclick=function(){filterCat(c,p);};n.appendChild(p);});}
 function buildSections(products){var cont=document.getElementById('sections-container');cont.innerHTML='';CAT_ORDER.forEach(function(cat){var items=products.filter(function(p){return p.cat===cat;});if(!items.length)return;var sec=document.createElement('div');sec.className='cat-section visible';sec.dataset.cat=cat;var color=COLORS[cat]||'#555';var grid=items.map(function(p){if(p.url){return '<a class="product-card" href="'+p.url+'" target="_blank" rel="noopener"><div class="card-dot" style="background:'+color+'"></div><div class="card-brand">'+p.brand+'</div><div class="card-name">'+p.name+'</div><div class="card-size">'+p.size+'</div><div class="card-price">'+p.price+'</div><div class="card-btn">Shop on Amazon &rarr;</div></a>';}return '<div class="product-card no-link"><div class="card-dot" style="background:'+color+';opacity:0.35"></div><div class="card-brand">'+p.brand+'</div><div class="card-name">'+p.name+'</div><div class="card-size">'+p.size+'</div><div class="card-price">'+p.price+'</div><div class="card-pending">Link Coming Soon</div></div>';}).join('');sec.innerHTML='<div class="section-header"><div class="section-title">'+cat+'</div><div class="section-count">'+items.length+' items</div></div><div class="products-grid">'+grid+'</div>';cont.appendChild(sec);});}
