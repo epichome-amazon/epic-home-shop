@@ -317,6 +317,13 @@ var PRODUCTS=[
 {cat:'Home Essentials',name:'Paper Towel Holder',brand:'Various',size:'Countertop',price:'$18-28',url:'https://amzn.to/4mXXcmd'},
 
 {cat:'Home Maintenance',name:'Rysmirs 4 to 3 Inch Radon Mitigation Fan System',brand:'Rysmirs',size:'4 to 3 inch',price:'$85-110',url:'https://amzn.to/4sXXsTr'},
+
+{cat:'Home Maintenance',name:'Mole and Vole Repellent Balls Outdoor 8-Pack Lasts 3 Months',brand:'Various',size:'8 balls',price:'$18-24',url:'https://amzn.to/4efNnh9'},
+{cat:'Food & Breakroom',name:'Ensure Max Protein Shake Milk Chocolate 12-Pack 11 fl oz',brand:'Ensure',size:'12-pack 11 fl oz',price:'$28-34',url:'https://amzn.to/3QIVVmT'},
+
+{cat:'Home Maintenance',name:'Small Gutter Guard 3.25 Inch Diameter 24 Ft Leaf Filter for 4 Inch Gutters',brand:'Made in USA',size:'24 ft',price:'$18-26',url:'https://amzn.to/4t5Nhw8'},
+
+{cat:'Home Maintenance',name:'Small Gutter Guard 3.25 Inch Diameter 24 Ft Leaf Filter for 4 Inch Gutters',brand:'Made in USA',size:'24 ft',price:'$18-26',url:'https://amzn.to/3Rcq91H'},
 ];
 function buildNav(){var n=document.getElementById('cat-nav');n.innerHTML='';var a=document.createElement('div');a.className='cat-pill active';a.textContent='All';a.onclick=function(){filterCat('all',a);};n.appendChild(a);CAT_ORDER.forEach(function(c){var p=document.createElement('div');p.className='cat-pill';p.textContent=c;p.onclick=function(){filterCat(c,p);};n.appendChild(p);});}
 function buildSections(products){var cont=document.getElementById('sections-container');cont.innerHTML='';CAT_ORDER.forEach(function(cat){var items=products.filter(function(p){return p.cat===cat;});if(!items.length)return;var sec=document.createElement('div');sec.className='cat-section visible';sec.dataset.cat=cat;var color=COLORS[cat]||'#555';var grid=items.map(function(p){if(p.url){return '<a class="product-card" href="'+p.url+'" target="_blank" rel="noopener"><div class="card-dot" style="background:'+color+'"></div><div class="card-brand">'+p.brand+'</div><div class="card-name">'+p.name+'</div><div class="card-size">'+p.size+'</div><div class="card-price">'+p.price+'</div><div class="card-btn">Shop on Amazon &rarr;</div></a>';}return '<div class="product-card no-link"><div class="card-dot" style="background:'+color+';opacity:0.35"></div><div class="card-brand">'+p.brand+'</div><div class="card-name">'+p.name+'</div><div class="card-size">'+p.size+'</div><div class="card-price">'+p.price+'</div><div class="card-pending">Link Coming Soon</div></div>';}).join('');sec.innerHTML='<div class="section-header"><div class="section-title">'+cat+'</div><div class="section-count">'+items.length+' items</div></div><div class="products-grid">'+grid+'</div>';cont.appendChild(sec);});}
